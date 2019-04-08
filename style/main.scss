@@ -1,0 +1,208 @@
+$colors: (
+  Red: #b3272f,
+  White: #fff,
+  Black: #0f0f0f,
+  Green: #607b30
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  li {
+    list-style: none;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    text-transform: uppercase;
+  }
+  h1 {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+header {
+  .nav-container {
+    height: 100%;
+  }
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    background: color(Red);
+    margin: 0;
+  }
+  .nav-content {
+    display: grid;
+    grid-template-columns: [side] 1fr [video] 4fr;
+    .video-container {
+      grid-column: video;
+      video {
+        display: block;
+        width: 100%;
+      }
+    }
+    .side-container {
+      grid-column: side;
+      background-image: url("../assets/voicenotesv2.png");
+      background-position: top left;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.music-container {
+  display: grid;
+  grid-template-columns: [side] 1fr [albums] 1fr;
+  background: color(black);
+  color: color(white);
+  height: 100%;
+  padding: 2% 0;
+  .side-container {
+    grid-column: side;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .album-container {
+    grid-column: albums;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img {
+      max-height: 280px;
+      max-width: 280px;
+    }
+    .button-album {
+      background: color(white);
+      color: color(black);
+      padding: 5%;
+    }
+  }
+}
+
+.follow-container {
+  display: grid;
+  grid-template-columns: [title] 1fr [social] 1fr;
+  height: 150px;
+  background-image: url("../assets/followbg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  .title {
+    grid-column: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: color(white);
+  }
+  .social {
+    grid-column: social;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 2rem;
+    li {
+      margin-right: 5%;
+    }
+  }
+}
+
+.tour-container {
+  background: color(green);
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    color: color(white);
+    text-transform: uppercase;
+    font-weight: 800;
+    padding: 2%;
+  }
+  span {
+    color: color(white);
+    font-size: 0.75;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .tour-dates {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 30%;
+    flex-wrap: wrap;
+    .tour-event {
+      padding-right: 5%;
+      padding-top: 5%;
+    }
+  }
+}
+
+.feed-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-height: 180px;
+    max-width: 180px;
+  }
+}
+
+.modal {
+  form {
+    padding: 5%;
+    .form-check {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      color: #666;
+    }
+    .g-recaptcha {
+      display: flex;
+      justify-content: center;
+    }
+    .form-check a {
+      text-decoration: none;
+      color: #666;
+      margin-left: 15%;
+    }
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      a {
+        margin-left: 15%;
+      }
+    }
+    .form-buttons {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-top: 5%;
+    }
+    .CTAButton {
+      margin: 5% 0;
+    }
+  }
+}

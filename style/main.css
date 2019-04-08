@@ -1,0 +1,306 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
+
+body li {
+  list-style: none;
+}
+
+body a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  text-transform: uppercase;
+}
+
+body h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+header .nav-container {
+  height: 100%;
+}
+
+header .nav-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80px;
+  background: #b3272f;
+  margin: 0;
+}
+
+header .nav-content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: [side] 1fr [video] 4fr;
+      grid-template-columns: [side] 1fr [video] 4fr;
+}
+
+header .nav-content .video-container {
+  grid-column: video;
+}
+
+header .nav-content .video-container video {
+  display: block;
+  width: 100%;
+}
+
+header .nav-content .side-container {
+  grid-column: side;
+  background-image: url("../assets/voicenotesv2.png");
+  background-position: top left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.music-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: [side] 1fr [albums] 1fr;
+      grid-template-columns: [side] 1fr [albums] 1fr;
+  background: #0f0f0f;
+  color: #fff;
+  height: 100%;
+  padding: 2% 0;
+}
+
+.music-container .side-container {
+  grid-column: side;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.music-container .album-container {
+  grid-column: albums;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.music-container .album-container img {
+  max-height: 280px;
+  max-width: 280px;
+}
+
+.music-container .album-container .button-album {
+  background: #fff;
+  color: #0f0f0f;
+  padding: 5%;
+}
+
+.follow-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: [title] 1fr [social] 1fr;
+      grid-template-columns: [title] 1fr [social] 1fr;
+  height: 150px;
+  background-image: url("../assets/followbg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.follow-container .title {
+  grid-column: title;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+}
+
+.follow-container .social {
+  grid-column: social;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2rem;
+}
+
+.follow-container .social li {
+  margin-right: 5%;
+}
+
+.tour-container {
+  background: #607b30;
+  height: 60vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tour-container h2 {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding: 2%;
+}
+
+.tour-container span {
+  color: #fff;
+  font-size: 0.75;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.tour-container .tour-dates {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.tour-container .tour-dates .tour-event {
+  padding-right: 5%;
+  padding-top: 5%;
+}
+
+.feed-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.feed-container img {
+  max-height: 180px;
+  max-width: 180px;
+}
+
+.modal form {
+  padding: 5%;
+}
+
+.modal form .form-check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #666;
+}
+
+.modal form .g-recaptcha {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal form .form-check a {
+  text-decoration: none;
+  color: #666;
+  margin-left: 15%;
+}
+
+.modal form .button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.modal form .button-container a {
+  margin-left: 15%;
+}
+
+.modal form .form-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 5%;
+}
+
+.modal form .CTAButton {
+  margin: 5% 0;
+}
+/*# sourceMappingURL=main.css.map */
