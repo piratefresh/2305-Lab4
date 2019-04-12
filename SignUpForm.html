@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Set Password - Charlie Puth</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style/normalize.css" />
+    <link rel="stylesheet" href="./style/main.css" />
+  </head>
+  <body>
+    <div class="headerContent">
+      <header>
+        <div class="nav-container">
+          <ul class="nav-menu">
+            <a href="">
+              <h1>Charlie Puth</h1>
+            </a>
+            <li><a href="">Music</a></li>
+            <li><a href="">Tour</a></li>
+            <li><a href="">News</a></li>
+            <li>
+              <a href="" data-toggle="modal" data-target="#exampleModal"
+                >Login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </header>
+    </div>
+    <div class="SetPasswordContent">
+      <!-- Set Password Form -->
+      <div class="SetPasswordForm">
+        <h2>Set password</h2>
+        <p>Setting Password for</p>
+        <form action="php/set_password_controller.php" method="get">
+          <input type="hidden" name="SetFormEmail" id="SetFormEmail" value="" />
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              name="SetFormPassword1"
+              type="password"
+              class="form-control"
+              id="SetFormPassword1"
+              placeholder="Password"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Confirm Password</label>
+            <input
+              name="SetFormPassword2"
+              type="password"
+              class="form-control"
+              id="SetFormPassword2"
+              placeholder="Password"
+              required
+            />
+          </div>
+
+          <button class="btn btn-primary margin-top" type="submit">
+            Submit form
+          </button>
+        </form>
+      </div>
+      <div class="media-container">
+        <video class="video" autoplay="autoplay" muted="true" loop="loop">
+          <source src="./assets/doneforme.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div class="followContent"></div>
+    <div class="tourContent"></div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(() => {
+        $(".followContent").load("follow.html");
+        $(".tourContent").load("tour.html");
+      });
+    </script>
+    <script src="./js/lab4.js"></script>
+  </body>
+</html>

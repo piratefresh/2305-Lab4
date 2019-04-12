@@ -20,15 +20,14 @@ if ($status) {
     $rows = mysqli_num_rows($status);
     if ($rows == 1) { // Exact match. Authenticated. Ready to set password.
         $_SESSION["RegState"] = 2;
-        header("Location: ../index.php?Email=$Email");
+        header("Location: ../SignUpForm.html?Email=$Email");
         die();
     } else {
         $_SESSION["RegState"] = -3;
-        $_SESSION["ErrorMsg"] = "Authentication Failed: " . mysqli_error($con);
-        header("Location: ../index.php");
+        $_SESSION["Message"] = "Authentication Failed: " . mysqli_error($con);
+        header("Location: ../index.html");
         die();
     }
 }
 
 exit();
-?>

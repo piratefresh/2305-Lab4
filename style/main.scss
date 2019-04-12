@@ -168,41 +168,60 @@ header {
 }
 
 .modal {
+}
+
+.SetPasswordContent {
+  display: grid;
+  grid-template-columns: [signupform] 1fr [mediaform] 1fr;
+  background: color(white);
+  padding: 5%;
   form {
-    padding: 5%;
-    .form-check {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      color: #666;
+    grid-column: signupform;
+    width: 100%;
+  }
+  .media-container {
+    grid-column: mediaform;
+    video {
+      display: block;
+      width: 100%;
     }
-    .g-recaptcha {
-      display: flex;
-      justify-content: center;
-    }
-    .form-check a {
-      text-decoration: none;
-      color: #666;
+  }
+}
+
+form {
+  padding: 5%;
+  .form-check {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #666;
+  }
+  .g-recaptcha {
+    display: flex;
+    justify-content: center;
+  }
+  .form-check a {
+    text-decoration: none;
+    color: #666;
+    margin-left: 15%;
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-around;
+    a {
       margin-left: 15%;
     }
-    .button-container {
-      display: flex;
-      justify-content: space-around;
-      a {
-        margin-left: 15%;
-      }
-    }
-    .form-buttons {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-evenly;
-      margin-top: 5%;
-    }
-    .CTAButton {
-      margin: 5% 0;
-    }
+  }
+  .form-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 5%;
+  }
+  .CTAButton {
+    margin: 5% 0;
   }
 }

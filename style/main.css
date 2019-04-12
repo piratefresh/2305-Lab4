@@ -233,11 +233,34 @@ header .nav-content .side-container {
   max-width: 180px;
 }
 
-.modal form {
+.SetPasswordContent {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: [signupform] 1fr [mediaform] 1fr;
+      grid-template-columns: [signupform] 1fr [mediaform] 1fr;
+  background: #fff;
   padding: 5%;
 }
 
-.modal form .form-check {
+.SetPasswordContent form {
+  grid-column: signupform;
+  width: 100%;
+}
+
+.SetPasswordContent .media-container {
+  grid-column: mediaform;
+}
+
+.SetPasswordContent .media-container video {
+  display: block;
+  width: 100%;
+}
+
+form {
+  padding: 5%;
+}
+
+form .form-check {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -254,7 +277,7 @@ header .nav-content .side-container {
   color: #666;
 }
 
-.modal form .g-recaptcha {
+form .g-recaptcha {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -263,13 +286,13 @@ header .nav-content .side-container {
           justify-content: center;
 }
 
-.modal form .form-check a {
+form .form-check a {
   text-decoration: none;
   color: #666;
   margin-left: 15%;
 }
 
-.modal form .button-container {
+form .button-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -277,11 +300,11 @@ header .nav-content .side-container {
       justify-content: space-around;
 }
 
-.modal form .button-container a {
+form .button-container a {
   margin-left: 15%;
 }
 
-.modal form .form-buttons {
+form .form-buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -300,7 +323,7 @@ header .nav-content .side-container {
   margin-top: 5%;
 }
 
-.modal form .CTAButton {
+form .CTAButton {
   margin: 5% 0;
 }
 /*# sourceMappingURL=main.css.map */

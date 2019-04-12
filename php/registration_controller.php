@@ -10,7 +10,7 @@ require '../PHPMailer/src/Exception.php';
 require '../PHPMailer/src/PHPMailer.php';
 require '../PHPMailer/src/SMTP.php';
 
-$Email = $_GET['Email'];
+$Email = $_GET['SignUpEmail'];
 $FirstName = $_GET['FirstName'];
 $LastName = $_GET['LastName'];
 print "Email ($Email) Name($FirstName $LastName) <br>";
@@ -19,7 +19,7 @@ print "Email ($Email) Name($FirstName $LastName) <br>";
 $conn = mysqli_connect(SERVER, USER, PASSWORD, DATABASE);
 if (!$conn) {
     $_SESSION["RegState"] = -1;
-    $_SESSION["ErrorMsg"] = "Connection failed: " . mysqli_connect_error();
+    $_SESSION["Message"] = "Connection failed: " . mysqli_connect_error();
     header("Location: ../index.php");
     die();
 }
@@ -37,7 +37,7 @@ if (!$result) {
     exit();
 }
 // New Visitor inserted, ready to send email and acode
-$Message = "Please click the link to activate account: " . "http://cis-linux2.temple.edu/~tug36870/2305/lab3/php/Authenticate.php?Email=$Email&Acode=$Acode";
+$Message = "Please click the link to activate account: " . "http://cis-linux2.temple.edu/~tug36870/2305/ajaxlab/php/Authenticate.php?Email=$Email&Acode=$Acode";
 
 // Build the PHPMailer object
 $mail = new PHPMailer(true);
@@ -61,15 +61,13 @@ try {
     $mail->send();
     print "Email sent ...< br >";
     $_SESSION["RegState "] = 1;
-    $_SESSION["Message"] = "Email sent.";
-    header("location:../index.php");
+    $_SESSION["Message"] = "Registration succeeded. Check email to complete";
+    header("location:../index.html");
     exit();
 } catch (phpmailerException $e) {
     $_SESSION["Message"] = "Mailer error: " . $e->errorMessage();
-    $_SESSION["RegState"] = -4;
+    $_SESSION["Message"] = -4;
     print "Mail send failed: " . $e->errorMessage;
 }
 //header("location:../index.php");
 exit();
-
-?>
