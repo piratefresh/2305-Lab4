@@ -73,6 +73,26 @@ header .nav-content .side-container {
   background-repeat: no-repeat;
 }
 
+.modal .SignUpForm {
+  display: none;
+}
+
+.modal .SetPasswordForm {
+  display: none;
+}
+
+.modal .ResetPasswordForm1 {
+  display: none;
+}
+
+.modal .ResetPasswordForm1 .LoginButton {
+  cursor: pointer;
+}
+
+.modal .resetPasswordForm2 {
+  display: none;
+}
+
 .music-container {
   display: -ms-grid;
   display: grid;

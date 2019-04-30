@@ -1,123 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style/normalize.css" />
+    <link rel="stylesheet" href="./style/main.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Document</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./style/normalize.css" />
-  <link rel="stylesheet" href="./style/main.css" />
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</head>
-
-<body>
-
-  <div class="headerContent">
-    <!-- Header Container -->
-    <header>
-      <div class="nav-container">
-        <ul class="nav-menu">
-          <a href="">
-            <h1>Charlie Puth</h1>
-          </a>
-          <li><a href="">Music</a></li>
-          <li><a href="">Tour</a></li>
-          <li><a href="">News</a></li>
-          <li>
-            <a href="" data-toggle="modal" data-target="#exampleModal">Login</a>
-          </li>
-        </ul>
-      </div>
-      <div class="nav-content">
-        <div class="side-container"></div>
-        <div class="video-container">
-          <video class="video" autoplay="autoplay" muted="true" loop="loop">
-            <source src="./assets/doneforme.mp4" type="video/mp4" />
-          </video>
+  <body>
+    <div class="headerContent">
+      <!-- Header Container -->
+      <header>
+        <div class="nav-container">
+          <ul class="nav-menu">
+            <a href="">
+              <h1>Charlie Puth</h1>
+            </a>
+            <li><a href="">Music</a></li>
+            <li><a href="">Tour</a></li>
+            <li><a href="">News</a></li>
+            <li class="navLogin">
+              <a href="" data-toggle="modal" data-target="#exampleModal"
+                >Login</a
+              >
+            </li>
+          </ul>
         </div>
-      </div>
-    </header>
-    <!-- The Forms -->
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="alert alert-warning" role="alert"></div>
-          <!-- Login Form -->
-          <div class="LoginForm">
-            <form action="php/login_controller.php" method="post" enctype="multipart/form-data">
-              <p>Please Login to your account</p>
-              <div class="form-group">
-                <label for="email">Email address</label>
-                <input name="Email" type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Joedoe@email.com" required />
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input name="Password1" type="password" class="form-control" id="Password1" placeholder="Password" value="" required />
-              </div>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="rememberPassword" value="value1" />
-                <label class="form-check-label" for="exampleCheck1">Remember Password</label>
-                <a href="php/change_session_controller.php">Forgot password?</a>
-              </div>
-              <div class="g-recaptcha" data-sitekey="6Ld8IZQUAAAAALV45v301da9VhtkkCb6OuXU3rjL"></div>
-              <div class="button-container">
-                <button type="submit" class="btn btn-primary CTAButton">Login</button>
-                <div id='signUpButton' class="btn btn-primary CTAButton">Sign Up</div>
-              </div>
-            </form>
+        <div class="nav-content">
+          <div class="side-container"></div>
+          <div class="video-container">
+            <video class="video" autoplay="autoplay" muted="true" loop="loop">
+              <source src="./assets/doneforme.mp4" type="video/mp4" />
+            </video>
           </div>
+        </div>
+      </header>
+      <!-- The Forms -->
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="alert alert-warning" role="alert"></div>
+            <!-- Login Form -->
+            <div class="LoginForm">
+              <form
+                action="http://cis-linux2.temple.edu/~tug36870/2305/ajaxlab/php/login_controller.php"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <p>Please Login to your account</p>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input
+                    name="Email"
+                    type="email"
+                    class="form-control"
+                    id="Email"
+                    aria-describedby="emailHelp"
+                    placeholder="Joedoe@email.com"
+                    required
+                  />
+                  <small id="emailHelp" class="form-text text-muted"
+                    >We'll never share your email with anyone else.</small
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input
+                    name="Password1"
+                    type="password"
+                    class="form-control"
+                    id="Password1"
+                    placeholder="Password"
+                    value=""
+                    required
+                  />
+                </div>
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="exampleCheck1"
+                    name="rememberPassword"
+                    value="value1"
+                  />
+                  <label class="form-check-label" for="exampleCheck1"
+                    >Remember Password</label
+                  >
+                  <a id="ForgotPasswordButton">Forgot password?</a>
+                </div>
+                <div
+                  class="g-recaptcha"
+                  data-sitekey="6Ld8IZQUAAAAALV45v301da9VhtkkCb6OuXU3rjL"
+                ></div>
+                <div class="button-container">
+                  <button type="submit" class="btn btn-primary CTAButton">
+                    Login
+                  </button>
+                  <div id="signUpButton" class="btn btn-primary CTAButton">
+                    Sign Up
+                  </div>
+                </div>
+              </form>
+            </div>
 
-          <!-- Sign Up Form -->
-          <div class="SignUpForm">
-            <form action="php/registration_controller.php" method="get">
-              <div class="form-group">
-                <label for="FirstName">First Name</label>
-                <input name="FirstName" type="text" class="form-control" id="FirstName" placeholder="John" required />
-              </div>
-              <div class="form-group">
-                <label for="LastName">Last Name</label>
-                <input name="LastName" type="text" class="form-control" id="LastName" placeholder="Doe" required />
-              </div>
-              <div class="form-group">
-                <label for="Email">Email address</label>
-                <input name="SignUpEmail" type="email" class="form-control" id="SignUpEmail" aria-describedby="emailHelp" placeholder="joedoe@email.com" required />
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
-              <div class="form-buttons">
-                <div id="LoginButton" class="btn btn-primary">Login</div>
-                <button type="submit" class="btn btn-primary">Register</button>
-              </div>
-            </form>
+            <!-- Sign Up Form -->
+            <div class="SignUpForm">
+              <form
+                action="http://cis-linux2.temple.edu/~tug36870/2305/ajaxlab/php/registration_controller.php"
+                method="get"
+              >
+                <div class="form-group">
+                  <label for="FirstName">First Name</label>
+                  <input
+                    name="FirstName"
+                    type="text"
+                    class="form-control"
+                    id="FirstName"
+                    placeholder="John"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="LastName">Last Name</label>
+                  <input
+                    name="LastName"
+                    type="text"
+                    class="form-control"
+                    id="LastName"
+                    placeholder="Doe"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="Email">Email address</label>
+                  <input
+                    name="SignUpEmail"
+                    type="email"
+                    class="form-control"
+                    id="SignUpEmail"
+                    aria-describedby="emailHelp"
+                    placeholder="joedoe@email.com"
+                    required
+                  />
+                  <small id="emailHelp" class="form-text text-muted"
+                    >We'll never share your email with anyone else.</small
+                  >
+                </div>
+                <div class="form-buttons">
+                  <div class="btn btn-primary LoginButton">Login</div>
+                  <button type="submit" class="btn btn-primary">
+                    Register
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Set Email to Reset Password Form -->
+            <div class="ResetPasswordForm1">
+              <p>Please enter your email to reset password</p>
+              <form
+                action="http://cis-linux2.temple.edu/~tug36870/2305/ajaxlab/php/forgot_password_controller.php"
+                method="get"
+              >
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input
+                    name="ResetEmail"
+                    type="email"
+                    class="form-control"
+                    id="ResetEmail"
+                    aria-describedby="emailHelp"
+                    placeholder="Joedoe@email.com"
+                  />
+                </div>
+                <button class="btn btn-primary margin-top" type="submit">
+                  Submit
+                </button>
+                <div class="btn btn-primary LoginButton">Login</div>
+              </form>
+            </div>
           </div>
-
         </div>
       </div>
     </div>
-  </div>
-  <div class="musicContent"></div>
-  <div class="followContent"></div>
-  <div class="tourContent"></div>
-  <div class="feedContent"></div>
-  <div class="streamContent"></div>
+    <div class="musicContent"></div>
+    <div class="followContent"></div>
+    <div class="tourContent"></div>
+    <div class="feedContent"></div>
+    <div class="streamContent"></div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script>
-    $(document).ready(() => {
-      $(".musicContent").load("music.html");
-      $(".followContent").load("follow.html");
-      $(".tourContent").load("tour.html");
-      $(".feedContent").load("feed.html");
-      $(".streamContent").load("stream.html");
-    });
-  </script>
-  <script src="./js/lab4.js"></script>
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(() => {
+        $(".musicContent").load("music.html");
+        $(".followContent").load("follow.html");
+        $(".tourContent").load("tour.html");
+        $(".feedContent").load("feed.html");
+        $(".streamContent").load("stream.html");
+      });
+    </script>
+    <script src="./js/lab4.js"></script>
+  </body>
 </html>

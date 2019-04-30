@@ -68,6 +68,24 @@ header {
   }
 }
 
+.modal {
+  .SignUpForm {
+    display: none;
+  }
+  .SetPasswordForm {
+    display: none;
+  }
+  .ResetPasswordForm1 {
+    display: none;
+    .LoginButton {
+      cursor: pointer;
+    }
+  }
+  .resetPasswordForm2 {
+    display: none;
+  }
+}
+
 .music-container {
   display: grid;
   grid-template-columns: [side] 1fr [albums] 1fr;

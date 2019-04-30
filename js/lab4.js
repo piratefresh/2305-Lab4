@@ -2,21 +2,11 @@ $(function() {
   /* Clear Messages */
   readRegState();
   SignUpInit();
+  ForgotPasswordInit();
   readMessage();
-  if (Message.length > 0 && RegState != 0) {
-    const AlertMarkUp = `
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <p>${Message}</p>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    `;
-    document.querySelector(".nav-container").prepend(AlertMarkUp);
-  }
-  if (RegState >= 0) {
-    $(".SignUpForm").hide();
-    $(".SetPasswordForm").hide();
+  readUserData();
+  if (RegState <= 0) {
+    $(".ResetPasswordForm1").hide();
     $(".LoginForm").show();
     if (Message != "") {
       $("#MessageAlert").show();
@@ -28,22 +18,31 @@ $(function() {
     $(".SetPasswordForm").show();
     GetEmailQuery();
   }
+  if (RegState == 3) {
+    GetAcodeQuery();
+    GetEmailQuery();
+  }
+  if (RegState == 5) {
+    $(".SignUpForm").hide();
+    $(".LoginForm").hide();
+    $(".resetPasswordForm2").hide();
+    $(".ResetPasswordForm1").show();
+  }
 });
 
 // Get Regstate from php session
 function readRegState() {
-  alert("ReadRegState ajax");
   $.ajax({
     type: "GET",
-    url: "php/readRegState.php",
+    crossOrigin: true,
+    url:
+      "http://cis-linux2.temple.edu/~tug36870/2305/ajaxlab/php/readRegState.php",
     async: false,
     dataType: "json",
     encode: true
   }).always(data => {
     console.log(data);
-    alert("Ajax returned name: [" + data.name + "] value[" + data.value + "]");
     RegState = parseInt(data.value);
-    alert("ajax return: RegState={{" + RegState + "}}");
     return data;
   });
 }
@@ -52,20 +51,66 @@ function readRegState() {
 function readMessage() {
   $.ajax({
     type: "GET",
-    url: "php/readMessage.php",
+    crossOrigin: true,
+    url:
+      "http://cis-linux2.temple.edu/~tug36870/2305/ajaxlab/php/readMessage.php",
     async: false,
     dataType: "json",
     encode: true
   }).always(data => {
     console.log(data);
-    alert("Ajax returned Message: [" + data.value + "]");
     Message = data.value.toString();
+    if (Message.length > 1 && RegState < 0) {
+      const AlertMarkUp = `
+      <div class="alert alert-danger" role="alert">
+        ${Message}
+      </div>
+     `;
+      $(".nav-container").prepend(AlertMarkUp);
+    }
+    if (Message.length > 1 && RegState >= 0) {
+      const AlertMarkUp = `
+      <div class="alert-success" role="alert">
+        ${Message}
+      </div>
+    `;
+      $(".nav-container").prepend(AlertMarkUp);
+    }
+    return data;
+  });
+}
+
+/* Get User information from Session */
+function readUserData() {
+  $.ajax({
+    type: "GET",
+    crossOrigin: true,
+    url:
+      "http://cis-linux2.temple.edu/~tug36870/2305/ajaxlab/php/readUserData.php",
+    async: false,
+    dataType: "json",
+    encode: true
+  }).always(data => {
+    UserName = `${data.firstname.toString()} ${data.lastname.toString()}`;
+    if (data.hasOwnProperty("firstname")) {
+      const LogOutMarkUp = `
+      <li>
+        <a href="http://cis-linux2.temple.edu/~tug36870/2305/ajaxlab/php/logout_controller.php">Logout</a>
+      </li>
+   `;
+      const WelcomeMarkUp = `
+      <div>
+        <h3>Hello ${UserName}</h3>
+      </div>
+     `;
+      $(".nav-container").prepend(WelcomeMarkUp);
+      $(".navLogin").html(LogOutMarkUp);
+    }
     return data;
   });
 }
 
 function SignUpInit() {
-  alert("ok");
   $("#signUpButton").click(() => {
     $("#registrationButton").css("color", "red");
     $(".LoginForm").hide();
@@ -75,9 +120,21 @@ function SignUpInit() {
 }
 
 function LoginButtonInit() {
-  $("#LoginButton").click(function() {
+  $(".LoginButton").click(function() {
+    $(".LoginButton").css("background-color", "green");
+    $(".LoginButton").css("border-color", "green");
     $(".SignUpForm").hide();
+    $(".ResetPasswordForm1").hide();
     $(".LoginForm").show();
+    console.log("hit button");
+  });
+}
+
+function ForgotPasswordInit() {
+  $("#ForgotPasswordButton").click(() => {
+    $(".LoginForm").hide();
+    $(".ResetPasswordForm1").show();
+    LoginButtonInit();
   });
 }
 
@@ -86,4 +143,10 @@ function GetEmailQuery() {
   const Email = urlParams.get("Email");
   console.log(Email);
   document.getElementById("SetFormEmail").value = Email;
+}
+function GetAcodeQuery() {
+  let urlParams = new URLSearchParams(window.location.search);
+  const Acode = urlParams.get("Acode");
+  console.log(Acode);
+  document.getElementById("ForgotAcode").value = Acode;
 }
